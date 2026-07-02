@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#d9f99d" />
+    <title>Common Character Practice</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="practice-page" data-theme="green" data-animate="true" data-context="true">
+    <header class="hud hud-top-left">
+      <button id="settingsButton" class="hud-button">Settings</button>
+      <a class="hud-button hud-link" href="./index.html">Exit</a>
+    </header>
+
+    <div class="hud hud-top-right">
+      <label class="difficulty-chip">
+        <span>Difficulty</span>
+        <select id="difficulty"></select>
+      </label>
+    </div>
+
+    <main class="stage">
+      <section class="word-stage" aria-live="polite" aria-label="Current character sequence">
+        <div id="wordTrack" class="word-track"></div>
+      </section>
+
+      <section class="typing-line">
+        <input id="typingInput" class="typing-input-ghost" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the current character" />
+        <p id="feedback" class="typing-feedback">Choose a difficulty, then start typing.</p>
+      </section>
+    </main>
+
+    <section class="hud hud-bottom-left chart-hud">
+      <canvas id="wpmChart" width="360" height="180"></canvas>
+    </section>
+
+    <section class="hud hud-bottom-right timer-hud">
+      <div>
+        <span>Word timer</span>
+        <strong id="wordTimer">0.0s</strong>
+      </div>
+      <div>
+        <span>WPM</span>
+        <strong id="liveWpm">0</strong>
+      </div>
+      <div>
+        <span>Session</span>
+        <strong id="sessionTimer">00:00</strong>
+      </div>
+    </section>
+
+    <aside id="settingsPanel" class="settings-panel" aria-hidden="true">
+      <div class="settings-head">
+        <strong>Settings</strong>
+        <button id="closeSettingsButton" class="hud-button">Close</button>
+      </div>
+
+      <label>
+        <span>Background</span>
+        <select id="themeSelect"></select>
+      </label>
+      <label class="toggle-row"><input id="animationToggle" type="checkbox" checked /> Animation enable</label>
+      <label class="toggle-row"><input id="contextToggle" type="checkbox" checked /> Show next and past character</label>
+      <label class="toggle-row"><input id="fullscreenToggle" type="checkbox" /> Fullscreen enable</label>
+
+      <div class="settings-note">
+        <p>Use Enter to confirm a correct character. Wrong input stays in the field so you can delete it normally.</p>
+      </div>
+    </aside>
+
+    <button id="startButton" class="start-button">Start</button>
+
+    <script type="module" src="./common.js"></script>
+  </body>
+</html>
